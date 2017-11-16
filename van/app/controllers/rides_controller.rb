@@ -15,9 +15,8 @@ class RidesController < ApplicationController
   end
 
   def show
-    binding.pry
     ride = Ride.find_by(id: params[:id])
-    render :json => @ride.to_json
+    render :json => ride.to_json
   end
 
   def destroy

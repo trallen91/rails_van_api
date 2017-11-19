@@ -19,6 +19,11 @@ class RidesController < ApplicationController
     render :json => ride.to_json
   end
 
+  def show_waiting_requests
+    rides = Ride.where("status = ?", "Waiting")
+    render :json => rides.to_json
+  end
+
   def destroy
     ride = Ride.find_by(id: params[:id])
 

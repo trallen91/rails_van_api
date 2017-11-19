@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20171116003057) do
   create_table "rides", force: :cascade do |t|
     t.decimal  "pickup_latitude",  precision: 10, scale: 6
     t.decimal  "pickup_longitude", precision: 10, scale: 6
-    t.boolean  "complete",                                  default: false
-    t.datetime "created_at",                                                null: false
-    t.datetime "updated_at",                                                null: false
+    t.string   "status",                                    default: "Waiting"
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
 end

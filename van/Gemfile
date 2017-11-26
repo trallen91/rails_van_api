@@ -12,6 +12,7 @@ gem 'sqlite3'
 
 gem 'rack-cors', :require => 'rack/cors'
 #gem 'responders', '~> 2.0'
+gem 'twilio-ruby'
 
 
 

@@ -35,11 +35,18 @@ class RidesController < ApplicationController
   end
 
   def start_ride
+    @ride = Ride.find_by(id: params[:id])
+     @ride.status = "In Progress"
+     if @ride.save
+       send_start_text
+       render :json => @ride.to_json
+     else
+       render json: {:errors => @ride.errors.full_messages }
+     end
 
-    send_text
   end
 
-  def send_text
+  def send_start_text
     account_sid = "AC4def0e4247e3a242ad66b44c485c400a"
     auth_token = "9b0d156bd4122f290f992a9603c652a6"
     Twilio.configure do |config|

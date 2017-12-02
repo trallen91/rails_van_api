@@ -59,18 +59,51 @@ class RidesController < ApplicationController
     @client.messages.create({
       from: "+17187362402",
       to: "+13475998150",
-      body: "You driver is en route"
+      body: "Your Vantastic driver is roughly 7 minutes away in a blue Ford, license plate 4X32LUR"
     })
     return nil
   end
 
   def update_with_complete
-     @ride = Ride.find_by(id: params[:id])
-     @ride.status = "Complete"
-     if @ride.save
-       render :json => @ride.to_json
-     else
-       render json: {:errors => @ride.errors.full_messages }
-     end
+     # @ride = Ride.find_by(id: params[:id])
+     # @ride.status = "Complete"
+     # if @ride.save
+     #   render :json => @ride.to_json
+     # else
+     #   render json: {:errors => @ride.errors.full_messages }
+     # end
+    account_sid = "AC4def0e4247e3a242ad66b44c485c400a"
+    auth_token = "9b0d156bd4122f290f992a9603c652a6"
+    Twilio.configure do |config|
+      config.account_sid = account_sid
+      config.auth_token = auth_token
+    end
+
+    @client = Twilio::REST::Client.new
+
+    @client.messages.create({
+      from: "+17187362402",
+      to: "+13475998150",
+      body: "Thank you for using Vantastic.  Please respond with a number 1 through 5 to rate your experience!"
+    })
+    return nil
+   end
+
+   def pick_up
+    account_sid = "AC4def0e4247e3a242ad66b44c485c400a"
+    auth_token = "9b0d156bd4122f290f992a9603c652a6"
+    Twilio.configure do |config|
+      config.account_sid = account_sid
+      config.auth_token = auth_token
+    end
+
+    @client = Twilio::REST::Client.new
+
+    @client.messages.create({
+      from: "+17187362402",
+      to: "+13475998150",
+      body: "Your Vantastic driver has arrived at the pickup location"
+    })
+    return nil
    end
 end

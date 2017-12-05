@@ -11,14 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116003057) do
+ActiveRecord::Schema.define(version: 20171205172730) do
+
+  create_table "drivers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone_number"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "rides", force: :cascade do |t|
-    t.decimal  "pickup_latitude",  precision: 10, scale: 6
-    t.decimal  "pickup_longitude", precision: 10, scale: 6
-    t.string   "status",                                    default: "Waiting"
-    t.datetime "created_at",                                                    null: false
-    t.datetime "updated_at",                                                    null: false
+    t.decimal  "pickup_latitude",       precision: 10, scale: 6
+    t.decimal  "pickup_longitude",      precision: 10, scale: 6
+    t.string   "status",                                         default: "Waiting"
+    t.datetime "created_at",                                                         null: false
+    t.datetime "updated_at",                                                         null: false
+    t.string   "hailer_phone_number"
+    t.decimal  "destination_latitude",  precision: 10, scale: 6
+    t.decimal  "destination_longitude", precision: 10, scale: 6
   end
 
 end

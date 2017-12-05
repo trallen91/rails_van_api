@@ -41,11 +41,6 @@ GEM
     concurrent-ruby (1.0.5)
     crass (1.0.3)
     erubis (2.7.0)
-    factory_girl (4.9.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
-      railties (>= 3.0.0)
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     globalid (0.4.1)
@@ -131,7 +126,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  factory_girl_rails
   pg (= 0.18.1)
   rack-cors
   rails (= 4.2.4)

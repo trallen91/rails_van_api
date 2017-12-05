@@ -6,7 +6,6 @@ gem 'rails', '4.2.4'
 gem 'rails-api'
 gem 'rspec-core'
 gem 'rspec_junit_formatter'
-gem 'factory_girl_rails'
 
 gem 'spring', :group => :development
 

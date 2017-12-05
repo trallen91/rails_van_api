@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     parallelism: 3
-    working_directory: ~/circleci-demo-ruby-rails
+    working_directory: ~/van
     docker:
       - image: circleci/ruby:2.4-node
         environment:
@@ -33,29 +33,6 @@ jobs:
         paths:
           - vendor/bundle
 
-      # Only necessary if app uses webpacker or yarn in some other way
-      - type: cache-restore
-        name: Restore yarn cache
-        key: rails-demo-yarn-{{ checksum "yarn.lock" }}
-
-      - run:
-          name: Yarn Install
-          command: yarn install
-
-      # Store yarn / webpacker cache
-      - type: cache-save
-        name: Store yarn cache
-        key: rails-demo-yarn-{{ checksum "yarn.lock" }}
-        paths:
-          - ~/.yarn-cache
-
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
-      - run:
-          name: Database setup
-          command: bin/rails db:schema:load --trace
 
       # Run rspec in parallel
       - type: shell

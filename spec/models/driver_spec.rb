@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class DriverTest < ActiveSupport::TestCase
-  test "the truth" do
-     assert true
-  end
+# class DriverTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #    assert true
+  # end
 
   RSpec.describe Driver, type: :model do
     it "driver must have name field" do
@@ -18,4 +18,4 @@ class DriverTest < ActiveSupport::TestCase
       1 < 5
     end
   end
-end
+# end

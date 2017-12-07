@@ -5,7 +5,7 @@ class RidesController < ApplicationController
   end
 
   def create
-    @ride = Ride.new(pickup_latitude:params[:latitude], pickup_longitude: params[:longitude])
+    @ride = Ride.new(pickup_latitude:params[:pickup_latitude], pickup_longitude: params[:pickup_longitude], destination_latitude:params[:destination_latitude], destination_longitude:params[:destination_longitude])
 
     if @ride.save
       render :json => @ride.to_json
